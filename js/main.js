@@ -54,26 +54,26 @@ function deleteLastDigit() {
   }
 }
 
-function calculate() {
-  let num1 = ''
-  let num2 = ''
-  const operation = UI.BUTTONS.SIGNS.textContent
-  const calcResult = calc(operation, num1, num2)
+// function calculate() {
+//   let num1 = ''
+//   let num2 = ''
+//   const operation = UI.BUTTONS.SIGNS.textContent
+//   const calcResult = calc(operation, num1, num2)
 
-  if (UI.BUTTONS.SIGNS.textContent) {
-    git
-  }
-}
+//   if (UI.BUTTONS.SIGNS.textContent) {
+//     git
+//   }
+// }
 
-function calc(operation, a, b) {
-  switch (operation) {
-    case 'ADD':
-      return a + b
-    case 'SUBTRACT':
-      return a - b
-    case 'MULTI':
-      return a * b
-    case 'DIVIDE':
-      return a / b
-  }
-}
+// function calc(operation, a, b) {
+//   switch (operation) {
+//     case 'ADD':
+//       return a + b
+//     case 'SUBTRACT':
+//       return a - b
+//     case 'MULTI':
+//       return a * b
+//     case 'DIVIDE':
+//       return a / b
+//   }
+// }
