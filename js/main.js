@@ -61,7 +61,7 @@ function calculate() {
   const calcResult = calc(operation, num1, num2)
 
   if (UI.BUTTONS.SIGNS.textContent) {
-    calcResult
+    // вот тут не понимаю....
   }
 }
 
