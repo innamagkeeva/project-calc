@@ -62,6 +62,7 @@ function calculate() {
 
   if (UI.BUTTONS.SIGNS.textContent) {
     // вот тут не понимаю....
+    // совсем
   }
 }
 
