@@ -64,6 +64,7 @@ function calculate() {
     // вот тут не понимаю....
     // совсем
   }
+  console.log()
 }
 
 function calc(operation, a, b) {
