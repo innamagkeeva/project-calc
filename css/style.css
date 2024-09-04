@@ -85,6 +85,15 @@ body {
   font-size: 30px;
 }
 
+.button-delete {
+  width: 69px;
+  height: 72px;
+  border-radius: 30%;
+  background-color: #2e2f38;
+  color: white;
+  font-size: 30px;
+}
+
 .button-blue {
   background: #4b5efc;
 }

@@ -1,22 +1,25 @@
-const UI = {
-  BUTTONS: {
-    NUMBERS: document.querySelectorAll('.button-number'),
-    // TWO: document.querySelector('.button-2'),
-    // THREE: document.querySelector('.button-3'),
-    // FOUR: document.querySelector('.button-4'),
-    // FIVE: document.querySelector('.button-5'),
-    // SIX: document.querySelector('.button-6'),
-    // SEVEN: document.querySelector('.button-7'),
-    // EIGHT: document.querySelector('.button-8'),
-    // NINE: document.querySelector('.button-9'),
-    // ZERO: document.querySelector('.button-O'),
+let a = '' //первое число
+let b = '' //второе число
+let sign = '' //знак операции
 
-    SIGNS: document.querySelectorAll('.button-sign'),
-    // ADD: document.querySelector('.button-add'),
-    // SUBTRACT: document.querySelector('.button-subtract'),
-    // MULTI: document.querySelector('.button-multi'),
-    // DIVIDE: document.querySelector('.button-divide'),
-  },
+const UI = {
+  BUTTONS: document.querySelectorAll('.button'),
+  // TWO: document.querySelector('.button-2'),
+  // THREE: document.querySelector('.button-3'),
+  // FOUR: document.querySelector('.button-4'),
+  // FIVE: document.querySelector('.button-5'),
+  // SIX: document.querySelector('.button-6'),
+  // SEVEN: document.querySelector('.button-7'),
+  // EIGHT: document.querySelector('.button-8'),
+  // NINE: document.querySelector('.button-9'),
+  // ZERO: document.querySelector('.button-O'),
+
+  // SIGNS: document.querySelectorAll('.button-sign'),
+  // ADD: document.querySelector('.button-add'),
+  // SUBTRACT: document.querySelector('.button-subtract'),
+  // MULTI: document.querySelector('.button-multi'),
+  // DIVIDE: document.querySelector('.button-divide'),
+
   DELETE: document.querySelector('.button-delete'),
   CLEAR: document.querySelector('.button-C'),
   TEXT: document.querySelector('.calc__display-text'),
@@ -24,12 +27,10 @@ const UI = {
 }
 console.log(UI.BUTTONS)
 
-UI.BUTTONS.NUMBERS.forEach((button) =>
-  button.addEventListener('click', showButtonText)
-)
+UI.BUTTONS.forEach((button) => button.addEventListener('click', showButtonText))
 UI.CLEAR.addEventListener('click', clearResultText)
 UI.DELETE.addEventListener('click', deleteLastDigit)
-UI.BUTTONS.RESULT.addEventListener('click', calculate)
+// UI.BUTTONS.RESULT.addEventListener('click', calculate)
 
 function showButtonText(e) {
   let buttonText = ''
@@ -37,9 +38,43 @@ function showButtonText(e) {
   if (UI.TEXT.textContent === '0') {
     UI.TEXT.textContent = ''
   }
-  UI.TEXT.textContent += buttonText
-  console.log(UI.TEXT.textContent)
+  if (b === '' && sign === '') {
+    a += buttonText
+    UI.TEXT.textContent = a
+    console.log(UI.TEXT.textContent)
+  } else {
+    b += buttonText
+    UI.TEXT.textContent = b
+    console.log(UI.TEXT.textContent)
+    return
+  }
+
+  if (UI.BUTTONS.textContent) {
+    sign = buttonText
+    UI.TEXT.textContent = sign
+    console.log(UI.TEXT.textContent)
+    return
+  }
 }
+
+// if (UI.BUTTONS.RESULT) {
+//   switch (sign) {
+//     case '+':
+//       a = +a + +b
+//       break
+//     case '-':
+//       a = +a - +b
+//       break
+//     case '*':
+//       a = +a * +b
+//       break
+//     case '/':
+//       a = +a / +b
+//       break
+//   }
+// }
+// UI.TEXT.textContent = a
+// console.log(a, b, operation)
 
 function clearResultText() {
   UI.TEXT.textContent = '0'
@@ -54,28 +89,15 @@ function deleteLastDigit() {
   }
 }
 
-function calculate() {
-  let num1 = ''
-  let num2 = ''
-  const operation = UI.BUTTONS.SIGNS.textContent
-  const calcResult = calc(operation, num1, num2)
-
-  if (UI.BUTTONS.SIGNS.textContent) {
-    // вот тут не понимаю....
-    // совсем
-  }
-  console.log()
-}
-
-function calc(operation, a, b) {
-  switch (operation) {
-    case 'ADD':
-      return a + b
-    case 'SUBTRACT':
-      return a - b
-    case 'MULTI':
-      return a * b
-    case 'DIVIDE':
-      return a / b
-  }
-}
+// function calc(operation, a, b) {
+//   switch (operation) {
+//     case 'ADD':
+//       return a + b
+//     case 'SUBTRACT':
+//       return a - b
+//     case 'MULTI':
+//       return a * b
+//     case 'DIVIDE':
+//       return a / b
+//   }
+// }
