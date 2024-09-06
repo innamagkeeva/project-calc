@@ -27,24 +27,41 @@ UI.BUTTONS.SIGNS.forEach((button) =>
 UI.RESULT.addEventListener('click', calculate)
 
 function clearResultText() {
+  firstNumber = ''
+  secondNumber = ''
+  sign = ''
   UI.TEXT.textContent = '0'
 }
 
 function deleteLastDigit() {
-  const displayValue = UI.TEXT.textContent
-  if (displayValue.length > 1) {
-    UI.TEXT.textContent = displayValue.slice(0, -1)
+  if (sign === '') {
+    firstNumber = firstNumber.slice(0, -1)
+    if (firstNumber === '') {
+      firstNumber = '0'
+    }
+    UI.TEXT.textContent = firstNumber
+    console.log('firstNumber = ', firstNumber)
   } else {
-    UI.TEXT.textContent = '0'
+    secondNumber = secondNumber.slice(0, -1)
+    if (secondNumber === '') {
+      secondNumber = '0'
+    }
+    UI.TEXT.textContent = secondNumber
+    console.log('secondNumber = ', secondNumber)
   }
 }
 
 function showButtonText(e) {
   const buttonText = e.target.textContent
 
+  if (UI.TEXT.textContent === '0' && buttonText === '0') {
+    return
+  }
+
   if (UI.TEXT.textContent === '0') {
     UI.TEXT.textContent = ''
   }
+
   if (secondNumber === '' && sign === '') {
     firstNumber += buttonText
     UI.TEXT.textContent = firstNumber
@@ -71,54 +88,24 @@ function showSignText(e) {
 function calculate() {
   const a = firstNumber
   const b = secondNumber
+  let result
   console.log('a = ', firstNumber)
   console.log('b = ', secondNumber)
 
   switch (sign) {
     case '+':
-      a = number(a) + number(b)
+      result = Number(a) + Number(b)
       break
     case '-':
-      a = number(a) - number(b)
+      result = Number(a) - Number(b)
       break
     case '*':
-      a = number(a) * number(b)
+      result = Number(a) * Number(b)
       break
     case '/':
-      a = number(a) / number(b)
+      result = Number(a) / Number(b)
       break
   }
-  UI.TEXT.textContent = a
+  UI.TEXT.textContent = result
+  console.log('result = ', result)
 }
-
-// if (UI.BUTTONS.RESULT) {
-//   switch (sign) {
-//     case '+':
-//       a = +a + +b
-//       break
-//     case '-':
-//       a = +a - +b
-//       break
-//     case '*':
-//       a = +a * +b
-//       break
-//     case '/':
-//       a = +a / +b
-//       break
-//   }
-// }
-// UI.TEXT.textContent = a
-// console.log(a, b, operation)
-
-// function calc(operation, a, b) {
-//   switch (operation) {
-//     case 'ADD':
-//       return a + b
-//     case 'SUBTRACT':
-//       return a - b
-//     case 'MULTI':
-//       return a * b
-//     case 'DIVIDE':
-//       return a / b
-//   }
-// }
