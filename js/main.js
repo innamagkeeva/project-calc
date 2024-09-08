@@ -1,18 +1,21 @@
+import UI from './ui.js'
+console.log(UI)
+
 let firstNumber = ''
 let secondNumber = ''
 let sign = ''
 
-const UI = {
-  BUTTONS: {
-    NUMBERS: document.querySelectorAll('.button-number'),
-    SIGNS: document.querySelectorAll('.button-sign'),
-  },
-  DELETE: document.querySelector('.button-delete'),
-  CLEAR: document.querySelector('.button-C'),
-  TEXT: document.querySelector('.calc__display-text'),
-  RESULT: document.querySelector('.button-result'),
-}
-console.log(UI.BUTTONS)
+// const UI = {
+//   BUTTONS: {
+//     NUMBERS: document.querySelectorAll('.button-number'),
+//     SIGNS: document.querySelectorAll('.button-sign'),
+//   },
+//   DELETE: document.querySelector('.button-delete'),
+//   CLEAR: document.querySelector('.button-C'),
+//   TEXT: document.querySelector('.calc__display-text'),
+//   RESULT: document.querySelector('.button-result'),
+// }
+// console.log(UI.BUTTONS)
 
 UI.CLEAR.addEventListener('click', clearResultText)
 UI.DELETE.addEventListener('click', deleteLastDigit)
@@ -55,7 +58,7 @@ function showButtonText(e) {
   const buttonText = e.target.textContent
 
   if (UI.TEXT.textContent === '0' && buttonText === '0') {
-    return
+    // return
   }
 
   if (UI.TEXT.textContent === '0') {
@@ -70,7 +73,7 @@ function showButtonText(e) {
     secondNumber += buttonText
     UI.TEXT.textContent = secondNumber
     console.log(UI.TEXT.textContent)
-    return
+    // return
   }
 }
 
@@ -81,7 +84,7 @@ function showSignText(e) {
     sign = signText
     UI.TEXT.textContent = sign
     console.log(UI.TEXT.textContent)
-    return
+    // return
   }
 }
 
@@ -106,6 +109,7 @@ function calculate() {
       result = Number(a) / Number(b)
       break
   }
+
   UI.TEXT.textContent = result
   console.log('result = ', result)
 }
