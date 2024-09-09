@@ -5,18 +5,6 @@ let firstNumber = ''
 let secondNumber = ''
 let sign = ''
 
-// const UI = {
-//   BUTTONS: {
-//     NUMBERS: document.querySelectorAll('.button-number'),
-//     SIGNS: document.querySelectorAll('.button-sign'),
-//   },
-//   DELETE: document.querySelector('.button-delete'),
-//   CLEAR: document.querySelector('.button-C'),
-//   TEXT: document.querySelector('.calc__display-text'),
-//   RESULT: document.querySelector('.button-result'),
-// }
-// console.log(UI.BUTTONS)
-
 UI.CLEAR.addEventListener('click', clearResultText)
 UI.DELETE.addEventListener('click', deleteLastDigit)
 
@@ -58,11 +46,7 @@ function showButtonText(e) {
   const buttonText = e.target.textContent
 
   if (UI.TEXT.textContent === '0' && buttonText === '0') {
-    // return
-  }
-
-  if (UI.TEXT.textContent === '0') {
-    UI.TEXT.textContent = ''
+    return
   }
 
   if (secondNumber === '' && sign === '') {
@@ -73,7 +57,6 @@ function showButtonText(e) {
     secondNumber += buttonText
     UI.TEXT.textContent = secondNumber
     console.log(UI.TEXT.textContent)
-    // return
   }
 }
 
@@ -84,7 +67,6 @@ function showSignText(e) {
     sign = signText
     UI.TEXT.textContent = sign
     console.log(UI.TEXT.textContent)
-    // return
   }
 }
 
