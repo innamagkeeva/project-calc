@@ -4,6 +4,7 @@ console.log(UI)
 let firstNumber = ''
 let secondNumber = ''
 let sign = ''
+let result
 
 UI.CLEAR.addEventListener('click', clearResultText)
 UI.DELETE.addEventListener('click', deleteLastDigit)
@@ -27,17 +28,19 @@ function clearResultText() {
 function deleteLastDigit() {
   if (sign === '') {
     firstNumber = firstNumber.slice(0, -1)
-    if (firstNumber === '') {
-      firstNumber = '0'
-    }
     UI.TEXT.textContent = firstNumber
+    if (firstNumber === '') {
+      UI.TEXT.textContent = '0'
+    }
+
     console.log('firstNumber = ', firstNumber)
   } else {
     secondNumber = secondNumber.slice(0, -1)
-    if (secondNumber === '') {
-      secondNumber = '0'
-    }
     UI.TEXT.textContent = secondNumber
+    if (secondNumber === '') {
+      UI.TEXT.textContent = '0'
+    }
+
     console.log('secondNumber = ', secondNumber)
   }
 }
@@ -62,6 +65,7 @@ function showButtonText(e) {
 
 function showSignText(e) {
   const signText = e.target.textContent
+
   console.log('signText = ', signText)
   if (signText) {
     sign = signText
@@ -73,7 +77,7 @@ function showSignText(e) {
 function calculate() {
   const a = firstNumber
   const b = secondNumber
-  let result
+
   console.log('a = ', firstNumber)
   console.log('b = ', secondNumber)
 
@@ -88,10 +92,16 @@ function calculate() {
       result = Number(a) * Number(b)
       break
     case '/':
+      if (b === '0') {
+        UI.TEXT.textContent = 'ошибка'
+        firstNumber = ''
+        secondNumber = ''
+        sign = ''
+        return
+      }
       result = Number(a) / Number(b)
       break
   }
-
   UI.TEXT.textContent = result
   console.log('result = ', result)
 }
