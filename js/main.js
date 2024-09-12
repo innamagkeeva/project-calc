@@ -65,8 +65,12 @@ function showButtonText(e) {
 
 function showSignText(e) {
   const signText = e.target.textContent
-
+  if ((result !== '', sign)) {
+    firstNumber = result
+    secondNumber = ''
+  }
   console.log('signText = ', signText)
+
   if (signText) {
     sign = signText
     UI.TEXT.textContent = sign
